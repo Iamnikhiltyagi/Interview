@@ -25,9 +25,10 @@ public class InterviwerDb {
 		preparedStatement.setString(4, interviwerpojo.email);
 		preparedStatement.setString(5, interviwerpojo.phoneNumber);
 		
-		int numberOfRowsEffectted= preparedStatement.executeUpdate();
+		int numberOfRowsUpdated= preparedStatement.executeUpdate();
+		if (numberOfRowsUpdated != 1)
+			throw new SQLException("Number of Rows Updated: " + numberOfRowsUpdated);
 		preparedStatement.close();
-		System.out.println("rows effected: "+numberOfRowsEffectted);
 		
 	}
 
