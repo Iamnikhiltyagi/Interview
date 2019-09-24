@@ -1,9 +1,11 @@
 package Registration;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 import interview.logic.layer.InterViwer;
+import questions.logic.layer.MCQQuestions;
 
 public class StudentRegistration {
 	
@@ -35,14 +37,34 @@ public class StudentRegistration {
 		
 		
 	}
+	//get all question randomly from question_paper db
+	public void questionPaper() throws ClassNotFoundException, SQLException
+	{
+		
+		List<MCQQuestions> allQuestion = MCQQuestions.showQuestions();
+		int i = 0;
+		for (MCQQuestions question : allQuestion) {
+			i++;
+			System.out.print(i + "--->");
+			System.out.print("\t" +question.getQuesion());
+			System.out.println("\t" + question.getOptionA());
+			System.out.print("\t" + question.getOptionB());
+			System.out.print("\t" + question.getOptionC());
+			System.out.print("\t" + question.getOptionD());
+			System.out.println();
+		}
+
+	}
+	
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException 
 	{
 	
-		//StudentRegistration registration=new StudentRegistration();
+		StudentRegistration registration=new StudentRegistration();
 		//registration.register();
 		InterViwer iv=new InterViwer();
 		iv.Questions();
+		registration.questionPaper();
 		
 	}
 
