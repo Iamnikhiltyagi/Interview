@@ -47,7 +47,9 @@ public class StudentRegistration {
 			i++;
 			System.out.print(i + "--->");
 			System.out.print("\t" +question.getQuesion());
-			System.out.println("\t" + question.getOptionA());
+			System.out.println();
+			
+			System.out.print("\t" + question.getOptionA());
 			System.out.print("\t" + question.getOptionB());
 			System.out.print("\t" + question.getOptionC());
 			System.out.print("\t" + question.getOptionD());
