@@ -38,7 +38,7 @@ public class MCQQuestions {
 	public String getCurrectAnswer() {
 		return this.mypojo.correctOption;
 	}
-
+	//get all question randomly from question_paper db
 	public static List<MCQQuestions> showQuestions() throws ClassNotFoundException, SQLException {
 		MCQDataBase mcqDB = new MCQDataBase();
 		List<QuestionsPojo> questionPojo = mcqDB.getQuestions();

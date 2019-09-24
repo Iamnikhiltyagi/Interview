@@ -10,7 +10,7 @@ import interviewer.Utility.InterViwerPojo;
 public class InterviwerDb {
 	
 	private static final String jdbcURL = "com.mysql.jdbc.Driver";
-	
+	//new interviewer registration 
 	public void insertingInterviwerRecord(InterViwerPojo interviwerpojo) throws ClassNotFoundException, SQLException
 	{
 		Class.forName(jdbcURL);

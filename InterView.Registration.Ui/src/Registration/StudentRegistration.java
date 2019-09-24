@@ -11,7 +11,7 @@ public class StudentRegistration {
 	      String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	      return email.matches(regex);
 	}
-	
+	//interviewer new registration
 	public void register() throws ClassNotFoundException, SQLException
 	{
 		System.out.println("Welcome!!!! Please Enter Details For Registration  ");

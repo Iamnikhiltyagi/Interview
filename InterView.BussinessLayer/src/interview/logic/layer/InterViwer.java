@@ -7,7 +7,7 @@ import interviewer.Utility.InterViwerPojo;
 import interviwer.Db.InterviwerDb;
 
 public class InterViwer {
-	
+	//new interviewer registration
 	public void createRecord(String name,String email,String address,String phoneNumber) throws ClassNotFoundException, SQLException
 	{
 		InterViwerPojo interviwerPojo=new InterViwerPojo();

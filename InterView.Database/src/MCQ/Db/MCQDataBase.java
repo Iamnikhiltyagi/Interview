@@ -31,7 +31,7 @@ public class MCQDataBase {
 	System.out.println("---------------------------");
 		}
 	}
-	
+	//get all question randomly from question_paper db
 	public List<QuestionsPojo> getQuestions() throws SQLException, ClassNotFoundException
 	{
 		List<QuestionsPojo> questionsList=new ArrayList<>();
