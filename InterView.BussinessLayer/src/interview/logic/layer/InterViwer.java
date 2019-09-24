@@ -2,9 +2,8 @@ package interview.logic.layer;
 
 import java.sql.SQLException;
 
-import org.Utility.InterViwerPojo;
-
 import MCQ.Db.MCQDataBase;
+import interviewer.Utility.InterViwerPojo;
 import interviwer.Db.InterviwerDb;
 
 public class InterViwer {

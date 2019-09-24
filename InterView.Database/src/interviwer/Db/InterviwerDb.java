@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.Utility.InterViwerPojo;
+import interviewer.Utility.InterViwerPojo;
 
 public class InterviwerDb {
 	

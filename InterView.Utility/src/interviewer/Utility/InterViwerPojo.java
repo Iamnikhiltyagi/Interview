@@ -1,4 +1,4 @@
-package org.Utility;
+package interviewer.Utility;
 
 public class InterViwerPojo {
 	
