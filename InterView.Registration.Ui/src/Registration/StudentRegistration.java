@@ -31,7 +31,7 @@ public class StudentRegistration {
 		sc.close();
 		InterViwer interviwer=new InterViwer();
 		interviwer.createRecord(name, email, address, phoneNumber);
-		
+		System.out.println("hillo git");
 		
 		
 	}

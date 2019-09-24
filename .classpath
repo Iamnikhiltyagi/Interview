@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="InterView.BussinessLayer/src"/>
+	<classpathentry kind="src" path="InterView.Database/src"/>
+	<classpathentry kind="src" path="InterView.Registration.Ui/src"/>
+	<classpathentry kind="src" path="InterView.Utility/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/jar/mysql-connector.jar"/>
+	<classpathentry kind="output" path="InterView.Database/bin"/>
+</classpath>
