@@ -36,13 +36,13 @@ public class StudentRegistration {
 		
 	}
 	
+	public static void main(String[] args) throws ClassNotFoundException, SQLException 
+	{
 	
-	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
-		StudentRegistration registration=new StudentRegistration();
-		registration.register();
-		
+		//StudentRegistration registration=new StudentRegistration();
+		//registration.register();
+		InterViwer iv=new InterViwer();
+		iv.Questions();
 		
 	}
 
