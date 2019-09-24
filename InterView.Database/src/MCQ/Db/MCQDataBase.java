@@ -46,11 +46,11 @@ public class MCQDataBase {
 		{
 			QuestionsPojo questionPojo=new QuestionsPojo();
 			questionPojo.question=rs.getString(1);
-			questionPojo.question=rs.getString(2);
-			questionPojo.question=rs.getString(3);
-			questionPojo.question=rs.getString(4);
-			questionPojo.question=rs.getString(5);
-			questionPojo.question=rs.getString(6);
+			questionPojo.optionA=rs.getString(2);
+			questionPojo.optionB=rs.getString(3);
+			questionPojo.optionC=rs.getString(4);
+			questionPojo.optionD=rs.getString(5);
+			questionPojo.correctOption=rs.getString(6);
 			questionsList.add(questionPojo);
 		}
 		return questionsList;

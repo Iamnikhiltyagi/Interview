@@ -14,6 +14,8 @@ public class MCQQuestions {
 	public MCQQuestions(QuestionsPojo pojo) {
 		this.mypojo=pojo;
 	}
+	
+	
 
 	public static List<MCQQuestions> showQuestions() throws ClassNotFoundException, SQLException
 	{
