@@ -42,7 +42,6 @@ public class StudentRegistration {
 		
 		StudentRegistration registration=new StudentRegistration();
 		registration.register();
-		System.out.println("next hi.......................");
 		
 		
 	}
