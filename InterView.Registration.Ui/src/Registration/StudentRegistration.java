@@ -53,6 +53,7 @@ public class StudentRegistration {
 			System.out.println("\t c. " + question.getOptionC());
 			System.out.println("\t d. " + question.getOptionD());
 			System.out.println();
+
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your choice: ");
 			String ans = sc.next();
@@ -63,9 +64,11 @@ public class StudentRegistration {
 		}
 		System.out.println("Correct answers are :" + count);
 
+
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
 		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
 		System.out.println("enter your choice");
 		StudentRegistration registration = new StudentRegistration();
@@ -75,6 +78,7 @@ public class StudentRegistration {
 		registration.register();
 		if(inputChoice==2)
 		registration.questionPaper();
+
 
 	}
 
