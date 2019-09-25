@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import questions.Utility.QuestionsPojo;
+import questions.Utility.AnswerOptionPojo;
+import questions.Utility.QuestionPojo;
 
 public class MCQDataBase {
 	private static final String jdbcURL = "com.mysql.jdbc.Driver";
@@ -33,27 +34,29 @@ public class MCQDataBase {
 	}
 
 	// get all question randomly from question_paper db
-	public List<QuestionsPojo> getQuestions() throws SQLException, ClassNotFoundException {
-		List<QuestionsPojo> questionsList = new ArrayList<>();
+
+	public List<QuestionPojo> getQuestions() throws SQLException, ClassNotFoundException {
+		List<QuestionPojo> questionsList = new ArrayList<>();
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
 		System.out.println("Connection Success\n");
+//
+//		PreparedStatement preparedStatement = connection
+//				.prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
 
-		PreparedStatement preparedStatement = connection
-				.prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
+		PreparedStatement preparedStatement = connection.prepareStatement(
+				"SELECT t1.question,t2.options from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
 
 		ResultSet rs = preparedStatement.executeQuery();
 		while (rs.next()) {
-			QuestionsPojo questionPojo = new QuestionsPojo();
+			QuestionPojo questionPojo = new QuestionPojo();
 			questionPojo.question = rs.getString(1);
-			questionPojo.optionA = rs.getString(2);
-			questionPojo.optionB = rs.getString(3);
-			questionPojo.optionC = rs.getString(4);
-			questionPojo.optionD = rs.getString(5);
-			questionPojo.correctOption = rs.getString(6);
+			questionPojo.questionId = rs.getInt(2);
+			questionPojo.correctOption = rs.getString(3);
 			questionsList.add(questionPojo);
 		}
 		return questionsList;
 	}
+	public List<AnswerOptionPojo> getOptions();
 }

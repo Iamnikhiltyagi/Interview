@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import interview.logic.layer.InterViwer;
-import questions.logic.layer.MCQQuestions;
+import questions.logic.layer.McqQuestion;
 
 public class StudentRegistration {
 
@@ -41,9 +41,9 @@ public class StudentRegistration {
 	public void questionPaper() throws ClassNotFoundException, SQLException {
 		int count = 0;
 
-		List<MCQQuestions> allQuestion = MCQQuestions.showQuestions();
+		List<McqQuestion> allQuestion = McqQuestion.showQuestions();
 		int i = 0;
-		for (MCQQuestions question : allQuestion) {
+		for (McqQuestion question : allQuestion) {
 			i++;
 			System.out.println("Question:" + i);
 			System.out.print("\t" + question.getQuesion());
