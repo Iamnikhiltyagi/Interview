@@ -45,13 +45,13 @@ public class StudentRegistration {
 		int i = 0;
 		for (MCQQuestions question : allQuestion) {
 			i++;
-			System.out.print("Question:"+i + "->");
-			System.out.print("\t" +question.getQuesion());
+			System.out.println("Question:"+i );
+			System.out.print("\t"+question.getQuesion());
 			System.out.println();
-			System.out.println("a)"+"\t" + question.getOptionA());
-			System.out.println("b)"+"\t" + question.getOptionB());
-			System.out.println("c)"+"\t" + question.getOptionC());
-			System.out.println("d)"+"\t" + question.getOptionD());
+			System.out.println("\t a. " + question.getOptionA());
+			System.out.println("\t b. " + question.getOptionB());
+			System.out.println("\t c. " + question.getOptionC());
+			System.out.println("\t d. " + question.getOptionD());
 			System.out.println();
 		}
 
