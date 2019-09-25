@@ -60,7 +60,7 @@ public class StudentRegistration {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException 
 	{
-	
+	System.out.println("hello .......");
 		StudentRegistration registration=new StudentRegistration();
 		//registration.register();
 		InterViwer iv=new InterViwer();
