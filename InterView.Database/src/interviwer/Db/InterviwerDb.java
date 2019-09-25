@@ -14,7 +14,7 @@ public class InterviwerDb {
 	public void insertingInterviwerRecord(InterViwerPojo interviwerpojo) throws ClassNotFoundException, SQLException
 	{
 		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/interview","root","9910");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview","root","9910");
 		System.out.println("Connection Success\n");
 		
 		PreparedStatement preparedStatement = connection
