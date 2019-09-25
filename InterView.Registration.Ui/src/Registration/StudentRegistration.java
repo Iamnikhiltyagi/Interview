@@ -61,7 +61,7 @@ public class StudentRegistration {
 			{
 				count++;
 			}
-			sc.close();
+			
 		}
 		System.out.println("Correct answers are :"+count);
 
