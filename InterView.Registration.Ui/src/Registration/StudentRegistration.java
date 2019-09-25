@@ -40,6 +40,7 @@ public class StudentRegistration {
 	//get all question randomly from question_paper db
 	public void questionPaper() throws ClassNotFoundException, SQLException
 	{
+		int count=0;
 		
 		List<MCQQuestions> allQuestion = MCQQuestions.showQuestions();
 		int i = 0;
@@ -53,7 +54,16 @@ public class StudentRegistration {
 			System.out.println("\t c. " + question.getOptionC());
 			System.out.println("\t d. " + question.getOptionD());
 			System.out.println();
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter your choice: ");
+			String ans=sc.next();
+			if(ans.equals(question.getCurrectAnswer()))
+			{
+				count++;
+			}
+			sc.close();
 		}
+		System.out.println("Correct answers are :"+count);
 
 	}
 	

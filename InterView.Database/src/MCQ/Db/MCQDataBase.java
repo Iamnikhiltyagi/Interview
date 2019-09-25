@@ -40,7 +40,7 @@ public class MCQDataBase {
 		System.out.println("Connection Success\n");
 		
 		PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
-		System.out.println("preparedStatement");
+		
 		ResultSet rs=preparedStatement.executeQuery();
 		while(rs.next())
 		{
