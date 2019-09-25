@@ -40,7 +40,11 @@ public class StudentRegistration {
 	// get all question randomly from question_paper db
 	public void questionPaper() throws ClassNotFoundException, SQLException {
 		int count = 0;
+<<<<<<< HEAD
 		Scanner sc = new Scanner(System.in);
+=======
+
+>>>>>>> 5ae8e95d1ad33860b01e5a36cb2fedb09c474302
 		List<MCQQuestions> allQuestion = MCQQuestions.showQuestions();
 		int i = 0;
 		for (MCQQuestions question : allQuestion) {
@@ -53,7 +57,11 @@ public class StudentRegistration {
 			System.out.println("\t c. " + question.getOptionC());
 			System.out.println("\t d. " + question.getOptionD());
 			System.out.println();
+<<<<<<< HEAD
 
+=======
+			Scanner sc = new Scanner(System.in);
+>>>>>>> 5ae8e95d1ad33860b01e5a36cb2fedb09c474302
 			System.out.println("Enter your choice: ");
 			String ans = sc.next();
 			if (ans.equals(question.getCurrectAnswer())) {
@@ -62,11 +70,15 @@ public class StudentRegistration {
 
 		}
 		System.out.println("Correct answers are :" + count);
+<<<<<<< HEAD
 		sc.close();
+=======
+>>>>>>> 5ae8e95d1ad33860b01e5a36cb2fedb09c474302
 
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+<<<<<<< HEAD
 		System.out.println("hello .......");
 		StudentRegistration registration = new StudentRegistration();
 		// registration.register();
@@ -75,6 +87,17 @@ public class StudentRegistration {
 		registration.questionPaper();
 		// MCQDataBase mc=new MCQDataBase();
 		// mc.retrieveQuestions();
+=======
+		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
+		System.out.println("enter your choice");
+		StudentRegistration registration = new StudentRegistration();
+		Scanner sc=new Scanner(System.in);
+		int inputChoice=sc.nextInt();
+		if(inputChoice==1)
+		registration.register();
+		if(inputChoice==2)
+		registration.questionPaper();
+>>>>>>> 5ae8e95d1ad33860b01e5a36cb2fedb09c474302
 
 	}
 
