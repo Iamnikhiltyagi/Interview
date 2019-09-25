@@ -12,6 +12,7 @@ import questions.Utility.QuestionPojo;
 public class McqQuestion {
 
 	private QuestionPojo mypojo = null;
+	
 	private List<AnswerOptionPojo> myOptions = new ArrayList<AnswerOptionPojo>();
 	
 	public McqQuestion(QuestionPojo pojo, List<AnswerOptionPojo> allAnswers) {
@@ -26,14 +27,26 @@ public class McqQuestion {
 		}
 		
 		// ===============2===============
-		myOptions = allAnswers.stream().filter(itm -> itm.questionId == pojo.questionId).collect(Collectors.toList());
+		//  myOptions = allAnswers.stream().filter(itm -> itm.questionId == pojo.questionId).collect(Collectors.toList());
 		
 	}
 
-	public String getQuesion() {
+	public String getQuestion() 
+	{
 		return this.mypojo.question;
 	}
+	
+	
+//	public int getAnswerId()
+//	{
+//		return this.myOptions.optionId;
+//	}
+	public String getOptions()
+	{
+		return this.(List<AnswerOptionPojo>)myOptions.option;
+	}
 
+	
 	public int getQuestionId()
 	{
 		return this.mypojo.questionId;
@@ -44,12 +57,13 @@ public class McqQuestion {
 	}
 
 	// get all question randomly from question_paper db
-	public static List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
+	public   List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
 		MCQDataBase mcqDB = new MCQDataBase();
 		List<QuestionPojo> questionPojo = mcqDB.getQuestions();
+		List<AnswerOptionPojo> answerPojo=mcqDB.getOptions();
 		List<McqQuestion> questions = new ArrayList<>();
 		for (QuestionPojo pojo : questionPojo) {
-			questions.add(new McqQuestion(pojo, myOptions));
+			questions.add(new McqQuestion(pojo, (List<AnswerOptionPojo>) myOptions));
 		}
 		return questions;
 	}

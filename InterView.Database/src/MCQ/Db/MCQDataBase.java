@@ -40,22 +40,44 @@ public class MCQDataBase {
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
 		System.out.println("Connection Success\n");
-//
-//		PreparedStatement preparedStatement = connection
-//				.prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
 
-		PreparedStatement preparedStatement = connection.prepareStatement(
-				"SELECT t1.question,t2.options from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
+		PreparedStatement preparedStatement = connection
+				.prepareStatement("SELECT * FROM mcq_question ;");
+
+//		PreparedStatement preparedStatement = connection.prepareStatement(
+//				"SELECT t1.question,t2.options from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
 
 		ResultSet rs = preparedStatement.executeQuery();
 		while (rs.next()) {
 			QuestionPojo questionPojo = new QuestionPojo();
-			questionPojo.question = rs.getString(1);
-			questionPojo.questionId = rs.getInt(2);
+			questionPojo.question = rs.getString(2);
+			questionPojo.questionId = rs.getInt(1);
 			questionPojo.correctOption = rs.getString(3);
 			questionsList.add(questionPojo);
 		}
 		return questionsList;
 	}
-	public List<AnswerOptionPojo> getOptions();
+	public List<AnswerOptionPojo> getOptions() throws ClassNotFoundException, SQLException
+	{
+		List<AnswerOptionPojo> optionsList = new ArrayList<>();
+		Class.forName(jdbcURL);
+		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
+				"9910");
+		System.out.println("Connection Success\n");
+		
+		PreparedStatement preparedStatement = connection
+				.prepareStatement("SELECT t2.* from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		while (rs.next())
+		{
+			AnswerOptionPojo answerPojo=new AnswerOptionPojo();
+			answerPojo.questionId=rs.getInt(1);
+			answerPojo.optionId=rs.getInt(2);
+			answerPojo.option=rs.getString(3);
+			optionsList.add(answerPojo);
+		}
+		
+		return optionsList;
+	}
 }

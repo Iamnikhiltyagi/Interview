@@ -1,10 +1,13 @@
 package Registration;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import interview.logic.layer.InterViwer;
+import questions.Utility.AnswerOptionPojo;
+import questions.Utility.QuestionPojo;
 import questions.logic.layer.McqQuestion;
 
 public class StudentRegistration {
@@ -40,18 +43,20 @@ public class StudentRegistration {
 	// get all question randomly from question_paper db
 	public void questionPaper() throws ClassNotFoundException, SQLException {
 		int count = 0;
+		
+		QuestionPojo qpojo=new QuestionPojo();
+		List<AnswerOptionPojo> listAnswerOption=new ArrayList<AnswerOptionPojo>();
+		
+		McqQuestion mcq=new McqQuestion(qpojo,listAnswerOption);
 
-		List<McqQuestion> allQuestion = McqQuestion.showQuestions();
+		List<McqQuestion> allQuestion = mcq.showQuestions();
 		int i = 0;
 		for (McqQuestion question : allQuestion) {
 			i++;
 			System.out.println("Question:" + i);
-			System.out.print("\t" + question.getQuesion());
+			System.out.print("\t" + question.getQuestion());
 			System.out.println();
-			System.out.println("\t a. " + question.getOptionA());
-			System.out.println("\t b. " + question.getOptionB());
-			System.out.println("\t c. " + question.getOptionC());
-			System.out.println("\t d. " + question.getOptionD());
+			
 			System.out.println();
 
 			Scanner sc = new Scanner(System.in);
