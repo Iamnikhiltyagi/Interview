@@ -63,7 +63,7 @@ public class StudentRegistration {
 	System.out.println("hello .......");
 		StudentRegistration registration=new StudentRegistration();
 		//registration.register();
-		InterViwer iv=new InterViwer();
+		InterViwer iv=new InterViwer();  
 		iv.Questions();
 		registration.questionPaper();
 		
