@@ -48,10 +48,10 @@ public class StudentRegistration {
 			System.out.print("Question:"+i + "->");
 			System.out.print("\t" +question.getQuesion());
 			System.out.println();
-			System.out.print("a)"+"\t" + question.getOptionA());
-			System.out.print("b)"+"\t" + question.getOptionB());
-			System.out.print("c)"+"\t" + question.getOptionC());
-			System.out.print("d)"+"\t" + question.getOptionD());
+			System.out.println("a)"+"\t" + question.getOptionA());
+			System.out.println("b)"+"\t" + question.getOptionB());
+			System.out.println("c)"+"\t" + question.getOptionC());
+			System.out.println("d)"+"\t" + question.getOptionD());
 			System.out.println();
 		}
 
@@ -63,8 +63,8 @@ public class StudentRegistration {
 	System.out.println("hello .......");
 		StudentRegistration registration=new StudentRegistration();
 		//registration.register();
-		InterViwer iv=new InterViwer();  
-		iv.Questions();
+		//InterViwer iv=new InterViwer();  
+		//iv.Questions();
 		registration.questionPaper();
 		
 	}
