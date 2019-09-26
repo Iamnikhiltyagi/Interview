@@ -53,6 +53,7 @@ public class MCQDataBase {
 			questionPojo.question = rs.getString(2);
 			questionPojo.questionId = rs.getInt(1);
 			questionPojo.ansId = rs.getInt(3);
+			questionPojo.ans_key=rs.getString(4);
 			questionsList.add(questionPojo);
 		}
 		return questionsList;

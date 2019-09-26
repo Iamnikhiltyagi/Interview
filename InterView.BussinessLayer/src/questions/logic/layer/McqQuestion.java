@@ -48,6 +48,10 @@ public class McqQuestion {
 	public int getCurrectAnswerId() {
 		return this.mypojo.ansId;
 	}
+	public String getAnsKey()
+	{
+		return this.mypojo.ans_key;
+	}
 
 	// get all question randomly from question_paper db
 	public static List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
