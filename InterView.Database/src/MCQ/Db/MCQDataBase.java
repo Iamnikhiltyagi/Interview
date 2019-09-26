@@ -52,7 +52,7 @@ public class MCQDataBase {
 			QuestionPojo questionPojo = new QuestionPojo();
 			questionPojo.question = rs.getString(2);
 			questionPojo.questionId = rs.getInt(1);
-			questionPojo.correctOption = rs.getString(3);
+			questionPojo.ansId = rs.getInt(3);
 			questionsList.add(questionPojo);
 		}
 		return questionsList;

@@ -4,6 +4,6 @@ public class QuestionPojo {
 	
 	public String question;
 	public int questionId;
-	public String correctOption;
+	public int ansId;
 
 }

@@ -45,8 +45,8 @@ public class McqQuestion {
 		return this.mypojo.questionId;
 	}
 
-	public String getCurrectAnswer() {
-		return this.mypojo.correctOption;
+	public int getCurrectAnswerId() {
+		return this.mypojo.ansId;
 	}
 
 	// get all question randomly from question_paper db
