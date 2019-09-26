@@ -1,14 +1,12 @@
 package Registration;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import Exception.ValidationException;
 import interview.logic.layer.InterViwer;
 import questions.Utility.AnswerOptionPojo;
-import questions.Utility.QuestionPojo;
 import questions.logic.layer.McqQuestion;
 import util.Utility;
 
@@ -16,6 +14,7 @@ public class StudentRegistration {
 
 	// interviewer new registration
 	public void register() throws ClassNotFoundException, SQLException, ValidationException {
+		
 		System.out.println("Welcome!!!! Please Enter Details For Registration  ");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Name");
@@ -27,7 +26,18 @@ public class StudentRegistration {
 		}
 		System.out.println("Enter Email id ");
 		String email = sc.nextLine();
-		Utility.emailValid(email);
+		while(email.isEmpty())
+		{
+			System.err.println("can not be empty, Please enter again");
+			email = sc.nextLine();
+		}
+		while(Utility.isEmailValid(email)!=true)
+		{
+			System.err.println("email id not valid, Please enter again");
+			email = sc.nextLine();
+
+		}
+		
 		System.out.println("Enter Address ");
 		String address = sc.nextLine();
 		while(address.isEmpty())
