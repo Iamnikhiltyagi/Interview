@@ -40,6 +40,7 @@ public class StudentRegistration {
 		
 		System.out.println("Enter Address ");
 		String address = sc.nextLine();
+		System.out.println();
 		while(address.isEmpty())
 		{
 			System.out.println("address can't be empty");
