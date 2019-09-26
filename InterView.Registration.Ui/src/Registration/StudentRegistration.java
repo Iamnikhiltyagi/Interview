@@ -51,10 +51,12 @@ public class StudentRegistration {
 			System.out.println("Question:" + i);
 			System.out.print("\t" + question.getQuestion());
 			System.out.println();
-
+			char z='a';
 			List<AnswerOptionPojo> allOptions = question.showOptions();
 			for (AnswerOptionPojo anOptionForThisQuestion : allOptions) {
-				System.out.println(anOptionForThisQuestion.option);
+				
+				System.out.println(z+":"+anOptionForThisQuestion.option);
+				z++;
 			}
 			System.out.println();
 
