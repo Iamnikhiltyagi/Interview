@@ -42,7 +42,7 @@ public class MCQDataBase {
 		System.out.println("Connection Success\n");
 
 		PreparedStatement preparedStatement = connection
-				.prepareStatement("SELECT * FROM mcq_question ;");
+				.prepareStatement("SELECT * FROM mcq_question ORDER BY RAND() LIMIT 3 ;");
 
 //		PreparedStatement preparedStatement = connection.prepareStatement(
 //				"SELECT t1.question,t2.options from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
