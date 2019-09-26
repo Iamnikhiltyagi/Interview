@@ -12,43 +12,36 @@ import questions.Utility.QuestionPojo;
 public class McqQuestion {
 
 	private QuestionPojo mypojo = null;
-	
-	private List<AnswerOptionPojo> myOptions = new ArrayList<AnswerOptionPojo>();
-	
+
+	// private AnswerOptionPojo answerPojo=null;
+
+	public List<AnswerOptionPojo> myOptions = new ArrayList<AnswerOptionPojo>();
+
 	public McqQuestion(QuestionPojo pojo, List<AnswerOptionPojo> allAnswers) {
 		this.mypojo = pojo;
-		
-		
+
 		// ==============1===================
-		for(AnswerOptionPojo itm : allAnswers) {
-			if(itm.questionId == pojo.questionId) {
-				myOptions.add(itm);
-			}
-		}
-		
+//		for(AnswerOptionPojo itm : allAnswers) {
+//			if(itm.questionId == pojo.questionId) {
+//				myOptions.add(itm);
+//			}
+//		}
+
 		// ===============2===============
-		//  myOptions = allAnswers.stream().filter(itm -> itm.questionId == pojo.questionId).collect(Collectors.toList());
-		
+		myOptions = allAnswers.stream().filter(itm -> itm.questionId == pojo.questionId).collect(Collectors.toList());
+
 	}
 
-	public String getQuestion() 
-	{
+	public String getQuestion() {
 		return this.mypojo.question;
 	}
-	
-	
-//	public int getAnswerId()
-//	{
-//		return this.myOptions.optionId;
-//	}
-	public String getOptions()
-	{
-		return this.(List<AnswerOptionPojo>)myOptions.option;
-	}
 
-	
-	public int getQuestionId()
-	{
+//	public int getQuestionID()
+//	{
+//		return this.answerPojo.questionId;
+//	}
+
+	public int getQuestionId() {
 		return this.mypojo.questionId;
 	}
 
@@ -57,15 +50,19 @@ public class McqQuestion {
 	}
 
 	// get all question randomly from question_paper db
-	public   List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
+	public static List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
 		MCQDataBase mcqDB = new MCQDataBase();
-		List<QuestionPojo> questionPojo = mcqDB.getQuestions();
-		List<AnswerOptionPojo> answerPojo=mcqDB.getOptions();
+		List<QuestionPojo> questionPojos = mcqDB.getQuestions();
+		List<AnswerOptionPojo> answerPojos = mcqDB.getOptions();
 		List<McqQuestion> questions = new ArrayList<>();
-		for (QuestionPojo pojo : questionPojo) {
-			questions.add(new McqQuestion(pojo, (List<AnswerOptionPojo>) myOptions));
+		for (QuestionPojo questionPojo : questionPojos) {
+			questions.add(new McqQuestion(questionPojo, answerPojos));
 		}
 		return questions;
+	}
+
+	public List<AnswerOptionPojo> showOptions() {
+		return myOptions;
 	}
 
 }

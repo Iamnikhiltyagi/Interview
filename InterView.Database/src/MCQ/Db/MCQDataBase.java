@@ -61,12 +61,12 @@ public class MCQDataBase {
 	{
 		List<AnswerOptionPojo> optionsList = new ArrayList<>();
 		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/interview", "root",
 				"9910");
 		System.out.println("Connection Success\n");
 		
 		PreparedStatement preparedStatement = connection
-				.prepareStatement("SELECT t2.* from mcq_question t1 inner join mcq_option t2 on t1.question_id=t2.question_id;");
+				.prepareStatement("SELECT * from mcq_option;");
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next())

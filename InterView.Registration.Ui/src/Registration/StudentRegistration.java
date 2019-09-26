@@ -43,20 +43,19 @@ public class StudentRegistration {
 	// get all question randomly from question_paper db
 	public void questionPaper() throws ClassNotFoundException, SQLException {
 		int count = 0;
-		
-		QuestionPojo qpojo=new QuestionPojo();
-		List<AnswerOptionPojo> listAnswerOption=new ArrayList<AnswerOptionPojo>();
-		
-		McqQuestion mcq=new McqQuestion(qpojo,listAnswerOption);
 
-		List<McqQuestion> allQuestion = mcq.showQuestions();
+		List<McqQuestion> allQuestions = McqQuestion.showQuestions();
 		int i = 0;
-		for (McqQuestion question : allQuestion) {
+		for (McqQuestion question : allQuestions) {
 			i++;
 			System.out.println("Question:" + i);
 			System.out.print("\t" + question.getQuestion());
 			System.out.println();
-			
+
+			List<AnswerOptionPojo> allOptions = question.showOptions();
+			for (AnswerOptionPojo anOptionForThisQuestion : allOptions) {
+				System.out.println(anOptionForThisQuestion.option);
+			}
 			System.out.println();
 
 			Scanner sc = new Scanner(System.in);
@@ -69,7 +68,6 @@ public class StudentRegistration {
 		}
 		System.out.println("Correct answers are :" + count);
 
-
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -77,13 +75,12 @@ public class StudentRegistration {
 		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
 		System.out.println("enter your choice");
 		StudentRegistration registration = new StudentRegistration();
-		Scanner sc=new Scanner(System.in);
-		int inputChoice=sc.nextInt();
-		if(inputChoice==1)
-		registration.register();
-		if(inputChoice==2)
-		registration.questionPaper();
-
+		Scanner sc = new Scanner(System.in);
+		int inputChoice = sc.nextInt();
+		if (inputChoice == 1)
+			registration.register();
+		if (inputChoice == 2)
+			registration.questionPaper();
 
 	}
 
