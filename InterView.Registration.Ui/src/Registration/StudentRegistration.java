@@ -52,16 +52,18 @@ public class StudentRegistration {
 			System.out.print("\t" + question.getQuestion());
 			System.out.println();
 
+			char ch='a';
 			List<AnswerOptionPojo> allOptions = question.showOptions();
 			for (AnswerOptionPojo anOptionForThisQuestion : allOptions) {
-				System.out.println(anOptionForThisQuestion.option);
+				System.out.println("\t"+ch+". "+anOptionForThisQuestion.option);
+				ch++;
 			}
 			System.out.println();
 
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your choice: ");
 			String ans = sc.next();
-			if (ans.equals(question.getCurrectAnswer())) {
+			if (ans.equals(question.getAnsKey())) {
 				count++;
 			}
 
