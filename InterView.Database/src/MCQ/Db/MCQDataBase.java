@@ -39,7 +39,6 @@ public class MCQDataBase {
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
-		System.out.println("Connection Success\n");
 
 		PreparedStatement preparedStatement = connection
 				.prepareStatement("SELECT * FROM mcq_question ORDER BY RAND() LIMIT 3 ;");
@@ -64,8 +63,9 @@ public class MCQDataBase {
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
-		System.out.println("Connection Success\n");
-		
+		/*
+		 * System.out.println("Connection Success\n");
+		 */		
 		PreparedStatement preparedStatement = connection
 				.prepareStatement("SELECT * from mcq_option;");
 		ResultSet rs = preparedStatement.executeQuery();
@@ -76,7 +76,7 @@ public class MCQDataBase {
 			answerPojo.questionId=rs.getInt(1);
 			answerPojo.optionId=rs.getInt(2);
 			answerPojo.option=rs.getString(3);
-			optionsList.add(answerPojo);
+			optionsList.add(answerPojo); 
 		}
 		
 		return optionsList;

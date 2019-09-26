@@ -5,39 +5,46 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Exception.ValidationException;
 import interview.logic.layer.InterViwer;
 import questions.Utility.AnswerOptionPojo;
 import questions.Utility.QuestionPojo;
 import questions.logic.layer.McqQuestion;
+import util.Utility;
 
 public class StudentRegistration {
 
-	static boolean isEmailValid(String email) {
-		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		return email.matches(regex);
-	}
-
 	// interviewer new registration
-	public void register() throws ClassNotFoundException, SQLException {
+	public void register() throws ClassNotFoundException, SQLException, ValidationException {
 		System.out.println("Welcome!!!! Please Enter Details For Registration  ");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Name");
 		String name = sc.nextLine();
-
+		while(name.isEmpty())
+		{
+			System.out.println("name can't be empty");
+			name=sc.nextLine();
+		}
 		System.out.println("Enter Email id ");
 		String email = sc.nextLine();
-
+		Utility.emailValid(email);
 		System.out.println("Enter Address ");
 		String address = sc.nextLine();
-
+		while(address.isEmpty())
+		{
+			System.out.println("address can't be empty");
+			address=sc.nextLine();
+		}
 		System.out.println("Enter Phone Number ");
 		String phoneNumber = sc.next();
-
+		while(phoneNumber.isEmpty())
+		{
+			System.out.println("phoneNumber can't be empty");
+			phoneNumber=sc.nextLine();
+		}
 		sc.close();
 		InterViwer interviwer = new InterViwer();
 		interviwer.createRecord(name, email, address, phoneNumber);
-		System.out.println("hillo git");
-
 	}
 
 	// get all question randomly from question_paper db
@@ -52,10 +59,10 @@ public class StudentRegistration {
 			System.out.print("\t" + question.getQuestion());
 			System.out.println();
 
-			char ch='a';
+			char ch = 'a';
 			List<AnswerOptionPojo> allOptions = question.showOptions();
 			for (AnswerOptionPojo anOptionForThisQuestion : allOptions) {
-				System.out.println("\t"+ch+". "+anOptionForThisQuestion.option);
+				System.out.println("\t" + ch + ". " + anOptionForThisQuestion.option);
 				ch++;
 			}
 			System.out.println();
@@ -72,7 +79,7 @@ public class StudentRegistration {
 
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, ValidationException {
 
 		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
 		System.out.println("enter your choice");
