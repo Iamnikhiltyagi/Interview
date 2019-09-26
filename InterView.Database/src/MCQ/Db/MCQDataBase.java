@@ -61,7 +61,7 @@ public class MCQDataBase {
 	{
 		List<AnswerOptionPojo> optionsList = new ArrayList<>();
 		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/interview", "root",
+		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
 		System.out.println("Connection Success\n");
 		
