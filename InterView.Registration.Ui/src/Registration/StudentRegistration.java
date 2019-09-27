@@ -74,7 +74,7 @@ public class StudentRegistration {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, ValidationException, IOException {
 
-		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
+		System.out.println("CHOICE\n1-->interviewer register\n2-->Inserting Question to database");
 		System.out.println("enter your choice");
 		EnterQuestion enterQ=new EnterQuestion();
 		StudentRegistration registration = new StudentRegistration();
