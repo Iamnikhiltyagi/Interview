@@ -10,7 +10,7 @@ import questions.Utility.PojoQuestion;
 
 public class Question {
 
-	char  option_label='a';
+	char option_label='a';
 	
 	public void insertOption(String qid) throws ClassNotFoundException, SQLException
 	{
@@ -33,15 +33,15 @@ public class Question {
 		option_label++;
 	}
 	
-	public void insertQuestion(String qid,int qstn_number,String question,String correct_option ) throws ClassNotFoundException, SQLException
+	public void insertQuestion(String qid,String question,String correct_option ) throws ClassNotFoundException, SQLException
 	{
 		PojoQuestion pQstn=new PojoQuestion();
 		pQstn.q_id=qid;
-		pQstn.question_number=qstn_number;
+		
 		pQstn.question=question;
 		pQstn.correct_option=correct_option;
 		
 		InsertQuestion insertQ=new InsertQuestion();
-		insertQ.insertingQuestion(qid, qstn_number, question, correct_option);
+		insertQ.insertingQuestion(qid,  question, correct_option);
 	}
 }

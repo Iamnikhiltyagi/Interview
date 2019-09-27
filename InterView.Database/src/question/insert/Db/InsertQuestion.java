@@ -29,7 +29,7 @@ public class InsertQuestion {
 		preparedStatement.close();
 	}
 
-	public void insertingQuestion(String qid, int qstn_number, String question, String correct_option)
+	public void insertingQuestion(String qid, String question, String correct_option)
 			throws SQLException, ClassNotFoundException {
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
@@ -38,7 +38,7 @@ public class InsertQuestion {
 		PreparedStatement preparedStatement = connection.prepareStatement("insert into mcqquestions values(?,?,?,?);");
 
 		preparedStatement.setString(1, qid);
-		preparedStatement.setInt(2, qstn_number);
+		preparedStatement.setInt(2, 0);
 		preparedStatement.setString(3, question);
 		preparedStatement.setString(4, correct_option);
 

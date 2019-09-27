@@ -37,7 +37,7 @@ public class EnterQuestion {
 		String correct_option=sc.nextLine();
 		
 		
-		q.insertQuestion(qid, qstn_number, question, correct_option);
+		q.insertQuestion(qid, question, correct_option);
 	}
 
 }
