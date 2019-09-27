@@ -15,22 +15,23 @@ import questions.Utility.QuestionPojo;
 public class MCQDataBase {
 	private static final String jdbcURL = "com.mysql.jdbc.Driver";
 
-	public void retrieveQuestions() throws ClassNotFoundException, SQLException {
-		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
-				"9910");
-		System.out.println("Connection Success\n");
-		PreparedStatement preparedStatement = connection
-				.prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
-		System.out.println("preparedStatement");
-		ResultSet rs = preparedStatement.executeQuery();
-
-		while (rs.next()) {
-			System.out.println(" Question is: " + rs.getString(1) + "\n Option a is: " + rs.getString(2)
-					+ "\n Option b is: " + rs.getString(3) + "\n Option c is: " + rs.getString(4) + "\n Option d is: "
-					+ rs.getString(5) + "\n answer " + rs.getString(6));
-		}
-	}
+	/*
+	 * public void retrieveQuestions() throws ClassNotFoundException, SQLException {
+	 * Class.forName(jdbcURL); Connection connection =
+	 * DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview",
+	 * "root", "9910"); // Connection connection =
+	 * DriverManager.getConnection("jdbc:mysql://192.168.0.105:3306/interview",
+	 * "root", // "9910"); System.out.println("Connection Success\n");
+	 * PreparedStatement preparedStatement = connection
+	 * .prepareStatement("SELECT * FROM question_paper ORDER BY RAND() LIMIT 3;");
+	 * System.out.println("preparedStatement"); ResultSet rs =
+	 * preparedStatement.executeQuery();
+	 * 
+	 * while (rs.next()) { System.out.println(" Question is: " + rs.getString(1) +
+	 * "\n Option a is: " + rs.getString(2) + "\n Option b is: " + rs.getString(3) +
+	 * "\n Option c is: " + rs.getString(4) + "\n Option d is: " + rs.getString(5) +
+	 * "\n answer " + rs.getString(6)); } }
+	 */
 
 	// get all question randomly from question_paper db
 
@@ -39,6 +40,8 @@ public class MCQDataBase {
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
+//		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.0.105:3306/interview", "root",
+//				"9910");
 
 		PreparedStatement preparedStatement = connection
 				.prepareStatement("SELECT * FROM mcq_question ORDER BY RAND() LIMIT 3 ;");
@@ -63,6 +66,8 @@ public class MCQDataBase {
 		Class.forName(jdbcURL);
 		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
 				"9910");
+//		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.0.105:3306/interview", "root",
+//				"9910");
 		/*
 		 * System.out.println("Connection Success\n");
 		 */		

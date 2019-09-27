@@ -1,8 +1,10 @@
 package util;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import Exception.ValidationException;
+//import Registration.StudentRegistration;
 
 
 public class Utility {
@@ -25,6 +27,5 @@ public class Utility {
 		return string==null||string.isEmpty();
 		 
 	 }
-	 
 	 
 }

@@ -20,9 +20,9 @@ public class InterViwer {
 		interviwerDb.insertingInterviwerRecord(interviwerPojo);
 	}
 
-	public void Questions() throws ClassNotFoundException, SQLException {
-		MCQDataBase db = new MCQDataBase();
-		db.retrieveQuestions();
-	}
+	/*
+	 * public void Questions() throws ClassNotFoundException, SQLException {
+	 * MCQDataBase db = new MCQDataBase(); db.retrieveQuestions(); }
+	 */
 
 }
