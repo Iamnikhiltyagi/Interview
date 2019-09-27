@@ -68,9 +68,7 @@ public class MCQDataBase {
 				"9910");
 //		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.0.105:3306/interview", "root",
 //				"9910");
-		/*
-		 * System.out.println("Connection Success\n");
-		 */		
+			
 		PreparedStatement preparedStatement = connection
 				.prepareStatement("SELECT * from mcq_option;");
 		ResultSet rs = preparedStatement.executeQuery();

@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import Exception.ValidationException;
 import MCQUi.McqQuestionUi;
+import QuestionEntry.EnterQuestion;
 import interview.logic.layer.InterViwer;
 import questions.Utility.AnswerOptionPojo;
 import questions.logic.layer.McqQuestion;
@@ -75,15 +76,17 @@ public class StudentRegistration {
 
 		System.out.println("CHOICE\n1-->interviewer register\n2-->start test");
 		System.out.println("enter your choice");
+		EnterQuestion enterQ=new EnterQuestion();
 		StudentRegistration registration = new StudentRegistration();
 		Scanner sc = new Scanner(System.in);
 		int inputChoice = sc.nextInt();
 		if (inputChoice == 1)
 			registration.register();
 		
+		
+		if (inputChoice == 2)
+		enterQ.QuestionEntering();
 		sc.close();
-//		if (inputChoice == 2)
-//			registration.questionPaper();
 
 	}
 
