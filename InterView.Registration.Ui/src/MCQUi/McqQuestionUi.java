@@ -47,7 +47,7 @@ public class McqQuestionUi {
 			System.out.print("\t" + question.getQuestion());
 
 			bw.newLine();
-			bw.append("Question:" + i + question.getQuestion());
+			bw.append("Question: " + i+" " + question.getQuestion());
 			bw.newLine();
 			bw.newLine();
 			bw.append("\n");
@@ -58,7 +58,7 @@ public class McqQuestionUi {
 			List<AnswerOptionPojo> allOptions = question.showOptions();
 			for (AnswerOptionPojo anOptionForThisQuestion : allOptions) {
 				System.out.println("\t" + ch + ". " + anOptionForThisQuestion.options);
-				bw.append(ch + ". " + anOptionForThisQuestion.options);
+				bw.append("\t"+ch + ". " + anOptionForThisQuestion.options);
 				bw.newLine();
 				ch++;
 
@@ -70,6 +70,7 @@ public class McqQuestionUi {
 			String ans = sc.next().toLowerCase();
 			char c = ans.charAt(0);
 			outer: if (c >= 'a' & c < ch) {
+				bw.newLine();	
 				bw.append("correct option is " + question.getCurrectAnswerId());
 				bw.newLine();
 				bw.append("option choosen: " + ans);
@@ -94,18 +95,12 @@ public class McqQuestionUi {
 //					new BufferedWriter (new FileWriter (studentRecord)) ) 
 
 		}
+		bw.append("===========================================================================");
+		bw.newLine();
 		bw.append("Total marks are " + count);
 		bw.newLine();
-		bw.append("----------------------------------------------------------");
-		bw.newLine();
-		bw.close();
-
-		// System.out.println("total marks:" + count);
-		Result rslt = new Result();
-		rslt.storeResult(name, email, address, phoneNumber, count);
-
-		System.out.println("Correct answers are :" + count);
-
+		
+		
 		long stopTime = System.currentTimeMillis();
 		Long elapsedTime = stopTime - startTime;
 
@@ -115,6 +110,20 @@ public class McqQuestionUi {
 		System.out.print(diffHours + " hours, ");
 		System.out.print(diffMinutes + " minutes, ");
 		System.out.print(diffSeconds + " seconds.");
+		
+		bw.append("Time taken= "+diffHours+":"+diffMinutes+":"+diffSeconds);
+		bw.newLine();
+		bw.append("===========================================================================");
+		bw.newLine();
+		bw.close();
+
+		// System.out.println("total marks:" + count);
+		Result rslt = new Result();
+		rslt.storeResult(name, email, address, phoneNumber, count);
+
+		System.out.println("Correct answers are :" + count);
+
+		
 	}
 
 }
