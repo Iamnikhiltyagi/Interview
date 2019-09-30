@@ -108,4 +108,18 @@ public class InsertQuestion {
 			throw new SQLException("Number of Rows Updated: " + numberOfRowsUpdated);
 		preparedStatement.close();
 	}
+	
+	public void deletingQuestion(String qid) throws SQLException {
+		Connection connection = ConnectionProvider.getConnection();
+		System.out.println("Connection Success\n");
+		PreparedStatement preparedStatement = connection.prepareStatement(
+				"delete mcqquestions , mcqoptions  from mcqquestions INNER JOIN mcqoptions on mcqquestions.question_id=mcqoptions.question_id where mcqquestions.question_id = ? ;");
+		preparedStatement.setString(1, qid);
+		
+		int numberOfRowsUpdated = preparedStatement.executeUpdate();
+		if (numberOfRowsUpdated != 1)
+			System.out.println("Number of Rows Updated: " + numberOfRowsUpdated);
+		preparedStatement.close();
+	}
+
 }

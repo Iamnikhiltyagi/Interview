@@ -9,10 +9,11 @@ import questions.Utility.PojoQuestion;
 
 public class EnterQuestion {
 	
+	Question q=new Question();
+	
 	static int qstn_number=0;
 	public void QuestionEntering() throws ClassNotFoundException, SQLException
 	{
-		Question q=new Question();
 		PojoQuestion qPojo=new PojoQuestion();
 		qPojo.q_id=UUID.randomUUID().toString();
 		String qid=qPojo.q_id;
@@ -41,7 +42,7 @@ public class EnterQuestion {
 	}
 	public void midQuestionEntering() throws ClassNotFoundException, SQLException
 	{
-		Question q=new Question();
+		
 		PojoQuestion qPojo=new PojoQuestion();
 		qPojo.q_id=UUID.randomUUID().toString();
 		String qid=qPojo.q_id;
@@ -67,6 +68,15 @@ public class EnterQuestion {
 		
 		
 		q.midinsertQuestion(qid, question, correct_option);
+	}
+	
+	public void delete() throws SQLException
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter Question id you want to delete");
+		String qid=sc.nextLine();
+		q.deletingQuestion(qid);
 	}
 
 }

@@ -74,6 +74,14 @@ public class Question {
 		insertQ.midinsertingQuestion(qid, question, correct_option);
 	}
 
+	public void deletingQuestion(String qid) throws SQLException
+	{
+		PojoQuestion pQstn = new PojoQuestion();
+		pQstn.q_id = qid;
+		
+		InsertQuestion dlt=new InsertQuestion();
+		dlt.deletingQuestion(qid);
+	}
 
 		
 	}

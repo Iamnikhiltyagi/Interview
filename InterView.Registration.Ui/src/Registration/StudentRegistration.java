@@ -73,24 +73,33 @@ public class StudentRegistration {
 	public static void main(String[] args)
 			throws ClassNotFoundException, SQLException, ValidationException, IOException {
 
-		System.out.println("CHOICE\n1-->interviewer register\n2-->Inserting Question to database\n3-->Insert MidQuestion to DB");
+		System.out.println("CHOICE\n1-->interviewer register\n2-->Inserting Question to database\n3-->Insert MidQuestion to DB\n4-->Delete Question");
 		System.out.println("enter your choice");
 		EnterQuestion enterQ = new EnterQuestion();
 		StudentRegistration registration = new StudentRegistration();
 		Scanner sc = new Scanner(System.in);
 		int inputChoice = sc.nextInt();
-		if (inputChoice == 1) {
-			System.out.println(
-					"Total Marks-3.\n--------------------------------------------------------------");
-			
-			registration.register();
-		}
-
-		if (inputChoice == 2)
-			enterQ.QuestionEntering();
-        if(inputChoice==3)
-        	enterQ.midQuestionEntering();
-		sc.close();
+		
+		outer:
+			switch(inputChoice)
+			{
+			case 1:
+				registration.register();
+				break;
+			case 2:
+				enterQ.QuestionEntering();
+				break;
+			case 3:
+				enterQ.midQuestionEntering();
+				break;
+			case 4:
+				enterQ.delete();
+				break;
+				default:
+					System.out.println("you entered wrong choice\n enter again");
+					inputChoice = sc.nextInt();
+					break outer;
+			}
 
 	}
 
