@@ -22,7 +22,7 @@ public class EnterQuestion {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter "+qstn_number+" question");
 		String question=sc.nextLine();
-		System.out.println("Enter (y) or (Y) to enter options");
+		System.out.println("Enter 'y' to enter options");
 		String ch=sc.next().toLowerCase();
 		
 		while(ch.equals("y"))

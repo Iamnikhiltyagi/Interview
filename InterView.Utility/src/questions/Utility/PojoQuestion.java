@@ -1,7 +1,5 @@
 package questions.Utility;
 
-import java.util.UUID;
-
 public class PojoQuestion {
 
 	public String q_id;

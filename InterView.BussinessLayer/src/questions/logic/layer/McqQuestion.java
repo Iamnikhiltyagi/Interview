@@ -21,14 +21,15 @@ public class McqQuestion {
 		this.mypojo = pojo;
 
 		// ==============1===================
-//		for(AnswerOptionPojo itm : allAnswers) {
-//			if(itm.questionId == pojo.questionId) {
-//				myOptions.add(itm);
-//			}
-//		}
+		// for(AnswerOptionPojo itm : allAnswers) {
+		// if(itm.questionId == pojo.questionId) {
+		// myOptions.add(itm);
+		// }
+		// }
 
 		// ===============2===============
-		myOptions = allAnswers.stream().filter(itm -> itm.questionId == pojo.questionId).collect(Collectors.toList());
+		myOptions = allAnswers.stream().filter(itm -> itm.questionId.equals(pojo.questionId))
+				.collect(Collectors.toList());
 
 	}
 
@@ -36,23 +37,17 @@ public class McqQuestion {
 		return this.mypojo.question;
 	}
 
-//	public int getQuestionID()
-//	{
-//		return this.answerPojo.questionId;
-//	}
-
-	public int getQuestionId() {
+	public String getQuestionId() {
 		return this.mypojo.questionId;
 	}
 
-	public int getCurrectAnswerId() {
-		return this.mypojo.ansId;
-	}
-	public String getAnsKey()
-	{
-		return this.mypojo.ans_key;
+	public String getCurrectAnswerId() {
+		return this.mypojo.currect_option;
 	}
 
+	/*
+	 * public String getAnsKey() { return this.mypojo.ans_key; }
+	 */
 	// get all question randomly from question_paper db
 	public static List<McqQuestion> showQuestions() throws ClassNotFoundException, SQLException {
 		MCQDataBase mcqDB = new MCQDataBase();

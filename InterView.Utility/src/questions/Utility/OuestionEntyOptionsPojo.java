@@ -1,8 +1,6 @@
 package questions.Utility;
 
-import java.util.UUID;
-
-public class PojoOptions {
+public class OuestionEntyOptionsPojo {
 	
 	public String q_id;
 	public String options;

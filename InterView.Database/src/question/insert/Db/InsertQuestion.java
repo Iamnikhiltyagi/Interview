@@ -3,6 +3,9 @@ package question.insert.Db;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import dbUtil.ConnectionProvider;
+
 import java.sql.Connection;
 
 public class InsertQuestion {
@@ -12,9 +15,12 @@ public class InsertQuestion {
 	public void insertingOption(String option, String qid, char option_label, String option_id)
 			throws SQLException, ClassNotFoundException {
 		String oplabel = Character.toString(option_label);
-		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
-				"9910");
+		/*
+		 * Class.forName(jdbcURL); Connection connection =
+		 * DriverManager.getConnection(
+		 * "jdbc:mysql://192.168.1.188:3306/interview", "root", "9910");
+		 */
+		Connection connection=ConnectionProvider.getConnection();
 		System.out.println("Connection Success\n");
 		PreparedStatement preparedStatement = connection.prepareStatement("insert into mcqoptions values(?,?,?,?);");
 
@@ -31,9 +37,12 @@ public class InsertQuestion {
 
 	public void insertingQuestion(String qid, String question, String correct_option)
 			throws SQLException, ClassNotFoundException {
-		Class.forName(jdbcURL);
-		Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.1.188:3306/interview", "root",
-				"9910");
+		/*
+		 * Class.forName(jdbcURL); Connection connection =
+		 * DriverManager.getConnection(
+		 * "jdbc:mysql://192.168.1.188:3306/interview", "root", "9910");
+		 */
+		Connection connection=ConnectionProvider.getConnection();
 		System.out.println("Connection Success\n");
 		PreparedStatement preparedStatement = connection.prepareStatement("insert into mcqquestions values(?,?,?,?);");
 
