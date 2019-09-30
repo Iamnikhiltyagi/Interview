@@ -9,24 +9,13 @@ import questions.Utility.AnswerOptionPojo;
 import questions.logic.layer.McqQuestion;
 import result.logic.layer.Result;
 
-public class McqQuestionUi extends TimerTask {
+public class McqQuestionUi  {
 
-	public static int i = 0;
-
-	@Override
-	public void run() {
-		i++;
-		if (i > 120) {
-			System.out.println("time over");
-			System.exit(i);
-		}
-
-	}
 
 	public void questionPaper(String name, String email, String address, String phoneNumber)
 			throws ClassNotFoundException, SQLException {
 		int count = 0;
-
+		long startTime = System.currentTimeMillis();
 		List<McqQuestion> allQuestions = McqQuestion.showQuestions();
 		int i = 0;
 		for (McqQuestion question : allQuestions) {
@@ -63,6 +52,16 @@ public class McqQuestionUi extends TimerTask {
 		rslt.storeResult(name, email, address, phoneNumber, count);
 
 		System.out.println("Correct answers are :" + count);
+
+		long stopTime = System.currentTimeMillis();
+		Long elapsedTime = stopTime - startTime;
+
+		long diffSeconds = elapsedTime / 1000 % 60;
+		long diffMinutes = elapsedTime / (60 * 1000) % 60;
+		long diffHours = elapsedTime / (60 * 60 * 1000) % 24;
+		System.out.print(diffHours + " hours, ");
+		System.out.print(diffMinutes + " minutes, ");
+		System.out.print(diffSeconds + " seconds.");
 
 	}
 
