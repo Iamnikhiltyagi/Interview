@@ -16,7 +16,7 @@ public class McqQuestionUi extends TimerTask {
 	@Override
 	public void run() {
 		i++;
-		if (i > 30) {
+		if (i > 120) {
 			System.out.println("time over");
 			System.exit(i);
 		}
@@ -44,13 +44,20 @@ public class McqQuestionUi extends TimerTask {
 			System.out.println();
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your choice: ");
-			String ans = sc.next();
-			if (ans.equals(question.getCurrectAnswerId())) {
-				count++;
-
+			String ans = sc.next().toLowerCase();
+			char c = ans.charAt(0);
+			outer:
+			if (c >= 'a' & c < ch) {
+				if (ans.equals(question.getCurrectAnswerId())) {
+					count++;
+				}
+			} else {
+				System.err.println("Enter correct choice please: ");
+				ans = sc.next().toLowerCase();
+				break  outer;
 			}
-
-		}
+		
+      }
 		// System.out.println("total marks:" + count);
 		Result rslt = new Result();
 		rslt.storeResult(name, email, address, phoneNumber, count);

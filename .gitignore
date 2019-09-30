@@ -3,3 +3,5 @@
 */build/*
 *.jar
 InterView.Registration.Ui/src/Registration/StudentRegistration.java
+InterView.Utility/src/dbUtil/ConnectionProvider.java
+InterView.Database/.classpath
