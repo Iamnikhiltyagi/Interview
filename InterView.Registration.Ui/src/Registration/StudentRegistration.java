@@ -49,6 +49,7 @@ public class StudentRegistration {
 			System.out.println("phoneNumber can't be empty");
 			phoneNumber = sc.nextLine();
 		}
+		sc.nextLine();
 		while (Utility.isValidphoneNumber(phoneNumber) != true) {
 		if(Utility.isValidphoneNumber(phoneNumber)) {
 		break;	
@@ -72,7 +73,7 @@ public class StudentRegistration {
 	public static void main(String[] args)
 			throws ClassNotFoundException, SQLException, ValidationException, IOException {
 
-		System.out.println("CHOICE\n1-->interviewer register\n2-->Inserting Question to database");
+		System.out.println("CHOICE\n1-->interviewer register\n2-->Inserting Question to database\n3-->Insert MidQuestion to DB");
 		System.out.println("enter your choice");
 		EnterQuestion enterQ = new EnterQuestion();
 		StudentRegistration registration = new StudentRegistration();
@@ -87,7 +88,8 @@ public class StudentRegistration {
 
 		if (inputChoice == 2)
 			enterQ.QuestionEntering();
-
+        if(inputChoice==3)
+        	enterQ.midQuestionEntering();
 		sc.close();
 
 	}
