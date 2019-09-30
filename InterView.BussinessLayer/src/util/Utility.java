@@ -2,6 +2,8 @@ package util;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import Exception.ValidationException;
 //import Registration.StudentRegistration;
@@ -27,5 +29,11 @@ public class Utility {
 		return string==null||string.isEmpty();
 		 
 	 }
-	 
+	  public static boolean isValidphoneNumber(String PhoneNumber) 
+	    { 
+	      
+	        Pattern p = Pattern.compile("(0/91)?[6-9][0-9]{9}"); 
+	        Matcher m = p.matcher(PhoneNumber); 
+	        return (m.find() && m.group().equals(PhoneNumber)); 
+	    } 
 }
