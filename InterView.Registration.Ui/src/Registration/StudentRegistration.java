@@ -49,7 +49,14 @@ public class StudentRegistration {
 			System.out.println("phoneNumber can't be empty");
 			phoneNumber = sc.nextLine();
 		}
-
+		while (Utility.isValidphoneNumber(phoneNumber) != true) {
+		if(Utility.isValidphoneNumber(phoneNumber)) {
+		break;	
+		}
+		else
+		System.err.print("incorrect phoneNumber please enter again");
+			phoneNumber=sc.nextLine();
+	}
 		// InterViwer interviwer = new InterViwer();
 		// interviwer.createRecord(name, email, address, phoneNumber);
 
