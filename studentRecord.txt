@@ -1,0 +1,38 @@
+name is: aeh
+email is: aega@hjk.com
+
+Question:1asdfasdf
+
+
+a. asdf
+b. asdf
+c. asdf
+d. asdas
+option choosen: a
+correct option is a
+marks obtained 1
+
+Question:2where is noida?
+
+
+a. mumbai
+b. delhi
+c. hariyana
+d. kerala
+e. u.p
+option choosen: b
+correct option is e
+Marks obtained 0
+
+Question:3who is sattu?
+
+
+a. sukla
+b. satyadeep sukla
+c. satyadeep
+d. satya
+option choosen: a
+correct option is b
+Marks obtained 0
+Total marks are 1
+----------------------------------------------------------

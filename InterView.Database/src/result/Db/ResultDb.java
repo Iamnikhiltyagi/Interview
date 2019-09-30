@@ -21,7 +21,7 @@ public class ResultDb {
 		 */		System.out.println("Connection Success\n");
 		Connection connection=ConnectionProvider.getConnection();
 		PreparedStatement preparedStatement = connection
-				.prepareStatement("insert into result values(?,?,?,?,?,?)");
+				.prepareStatement("insert into interviwer_record values(?,?,?,?,?,?)");
 		
 		preparedStatement.setInt(1, 0);
 		preparedStatement.setString(2, resultPojo.name);

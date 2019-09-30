@@ -56,5 +56,13 @@ public class InsertQuestion {
 			throw new SQLException("Number of Rows Updated: " + numberOfRowsUpdated);
 		preparedStatement.close();
 	}
+	
+	public void deletingQuestion() throws SQLException
+	{
+		Connection connection=ConnectionProvider.getConnection();
+		System.out.println("Connection Success\n");
+		PreparedStatement preparedStatement = connection.prepareStatement("delete from mcqquestions ;");
+
+	}
 
 }
