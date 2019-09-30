@@ -73,12 +73,8 @@ public class StudentRegistration {
 		int inputChoice = sc.nextInt();
 		if (inputChoice == 1) {
 			System.out.println(
-					"Total Time-30 second,Total Marks-3.\n--------------------------------------------------------------");
-			Timer timer = new Timer();
-			TimerTask task = new McqQuestionUi();
-
-			timer.schedule(task, 2000, 1000);
-
+					"Total Marks-3.\n--------------------------------------------------------------");
+			
 			registration.register();
 		}
 
